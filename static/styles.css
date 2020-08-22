@@ -1,0 +1,373 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+h1 {
+    color: #7ca2a2;
+    font-family: "Abril Fatface", cursive;
+    letter-spacing: 5px;
+    font-size: 50px;
+}
+
+h2 {
+    color: #b2a283;
+    font-family: "Abril Fatface", cursive;
+    letter-spacing: 4px;
+    font-size: 20px;
+}
+
+h3 {
+    color: #b2a283;
+    font-family: "Abril Fatface", cursive;
+    letter-spacing: 4px;
+    font-size: 18px;
+}
+
+table tr td {
+    border: 2px solid white;
+}
+
+.calendar td, th {
+    width: 12.5%;
+    border: 2px solid white;
+    user-select: none;
+    background: #f8f5ed;
+}
+
+.calendar tr {
+    border: 2px solid white;
+}
+
+td.active {
+    background-color: #7ca2a2;
+}
+
+body {
+    color: #b2a283;
+    background-color: #f8f5ed;
+    margin: 100px;
+    text-align: center;
+    font-family: "Assistant";
+    letter-spacing: 0.7px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+.pfp {
+    width: 70%;
+    border: 3px solid white;
+    border-radius: 50%;
+    padding:10px
+
+}
+
+main .form-control {
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main {
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+    /* center contents */
+    text-align: center;
+}
+
+main img {
+    /* constrain images on small screens */
+    max-width: 100%;
+}
+
+main .btn-primary {
+    background-color: #7ca2a2;
+    border-color: #7ca2a2;
+}
+
+main .btn-primary:hover {
+    background-color: #3e5151;
+    box-shadow: inset 0 0 0 0;
+}
+
+main .btn-primary:focus {
+    background-color: #b2a283;
+    border-color: #b2a283;
+    box-shadow: inset 0 0 0 0;
+}
+
+main .btn-primary:active {
+    background-color: #b2a283;
+    border-color: #b2a283;
+    box-shadow: inset 0 0 0 0;
+}
+
+input:focus {
+    border: none;
+    box-shadow: inset 0 0 0 0;
+}
+
+nav {
+    padding: 8px;
+}
+
+.logo {
+    float: left;
+    padding: 8px;
+    margin-left: 16px;
+    margin-top: 8px;
+}
+
+.logo a {
+    color: #7ca2a2;
+    font-family: "Abril Fatface", cursive;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+nav ul {
+    float: right;
+}
+
+nav ul li {
+    display: inline-block;
+    float: left;
+}
+
+nav ul li:not(:first-child) {
+    margin-left: 48px;
+}
+
+nav ul li:last-child {
+    margin-right: 24px;
+}
+
+nav ul li a {
+    display: inline-block;
+    outline-color: none;
+    color: #7ca2a2;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: "Abril Fatface";
+    font-size: 14px;
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+
+nav ul li a:hover {
+    color: #3e5151;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 864px) {
+    .logo {
+        padding: 0;
+    }
+
+    .nav-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: #f8f5ed;
+        opacity: 0;
+        transition: all 0.2s ease;
+    }
+
+    .nav-wrapper ul {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+    }
+
+    .nav-wrapper ul li {
+        display: block;
+        float: none;
+        width: 100%;
+        text-align: right;
+        margin-bottom: 10px;
+    }
+
+    .nav-wrapper ul li:nth-child(1) a {
+        transition-delay: 0.2s;
+    }
+
+    .nav-wrapper ul li:nth-child(2) a {
+        transition-delay: 0.3s;
+    }
+
+    .nav-wrapper ul li:nth-child(3) a {
+        transition-delay: 0.4s;
+    }
+
+    .nav-wrapper ul li:nth-child(4) a {
+        transition-delay: 0.5s;
+    }
+
+    .nav-wrapper ul li:not(:first-child) {
+        margin-left: 0;
+    }
+
+    .nav-wrapper ul li a {
+        padding: 10px 24px;
+        opacity: 0;
+        color: #7ca2a2;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 1.2px;
+        transform: translateX(-20px);
+        transition: all 0.2s ease;
+    }
+
+    .nav-btn {
+        position: fixed;
+        right: 10px;
+        top: 10px;
+        display: block;
+        width: 48px;
+        height: 48px;
+        cursor: pointer;
+        z-index: 9999;
+        border-radius: 50%;
+    }
+
+    .nav-btn i {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: #7ca2a2;
+        border-radius: 2px;
+        margin-left: 14px;
+    }
+
+    .nav-btn i:nth-child(1) {
+          margin-top: 16px;
+    }
+
+    .nav-btn i:nth-child(2) {
+        margin-top: 4px;
+        opacity: 1;
+    }
+
+    .nav-btn i:nth-child(3) {
+          margin-top: 4px;
+    }
+}
+
+#nav:checked + .nav-btn {
+    transform: rotate(45deg);
+}
+
+#nav:checked + .nav-btn i {
+    background: #7ca2a2;
+    transition: transform 0.2s ease;
+}
+
+#nav:checked + .nav-btn i:nth-child(1) {
+    transform: translateY(6px) rotate(180deg);
+}
+
+#nav:checked + .nav-btn i:nth-child(2) {
+    opacity: 0;
+}
+
+#nav:checked + .nav-btn i:nth-child(3) {
+    transform: translateY(-6px) rotate(90deg);
+}
+
+#nav:checked ~ .nav-wrapper {
+    z-index: 9990;
+    opacity: 1;
+}
+
+#nav:checked ~ .nav-wrapper ul li a {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Typing animation from Creative Bloq */
+.typing h2 {
+    font-size: 20px;
+    padding: 16px;
+    color: #b2a283;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typingAnim 5s steps(50);
+}
+
+@keyframes typingAnim {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes typingSpeak {
+    0% { width: 1em; height: .1em }
+    100% { width: 1em; height: .5em; }
+}
+
+/* Meet the team cards */
+/* Three columns side by side */
+/* Implementation from W3Schools */
+.row {
+    width: 90%;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 0 10px;
+}
+
+.panel {
+  float: left;
+  width: 30%;
+  padding: 0 10px;
+}
+
+/* Display the columns below each other instead of side by side on small screens */
+@media screen and (max-width: 650px) {
+    .column {
+        width: 75%;
+        display: block;
+    }
+}
+
+.title {
+    color: #3e5151;
+}
+
+/*.button {*/
+/*    border: none;*/
+/*    outline-color: 0;*/
+/*    display: inline-block;*/
+/*    padding: 8px;*/
+/*    color: white;*/
+/*    background-color: #000;*/
+/*    text-align: center;*/
+/*    cursor: pointer;*/
+/*    width: 80%;*/
+/*}*/
+
+/*.button:hover {*/
+/*    background-color: #555;*/
+/*}*/

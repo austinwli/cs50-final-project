@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Delete Courses
+{% endblock %}
+
+{% block body %}
+    <form action="/delete" method="post">
+        <h2>delete a course.</h2>
+        <hr/>
+        <div class="form-group">
+            <select class="form-control browser-default custom-select" name="course" required>
+                <option selected>your courses</option>
+                {% for course in userCourses %}
+                    <option>{{ course["dept"] }} {{ course["number"] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button class="btn btn-primary" id="delete">delete</button>
+    </form>
+{% endblock %}
+

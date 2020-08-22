@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block body %}
+    <h2>hello, {{ first }}.</h2>
+    {{ pronouns }}<br/>
+    {{ email }}<br/>
+    class of {{ year }}, {{ house }}
+    <br/><br/>
+    <a class="btn btn-primary" href="/edit">edit account</a>
+    <a class="btn btn-primary" href="/availability">edit availability</a>
+    <a class="btn btn-primary" href="/partners">view partners</a>
+    <br/><br/>
+    <hr>
+    <div>
+        <h2>your courses</h2>
+        <table style="width:85%" align="center">
+            <tr>
+                <th>department</th>
+                <th>number</th>
+                <th>notes to self</th>
+            </tr>
+            {% for course in courses %}
+                <tr>
+                    <td>{{ course["dept"] }}</td>
+                    <td>{{ course["number"] }}</td>
+                    <td>{{ course["addinfo"] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <br/><br/>
+        <!--<embed src="https://www.when2meet.com/" style="width:1000px; height: 500px;">-->
+        <!--<br/><br/>-->
+        <a class="btn btn-primary" href="/add">add course</a>
+        <a class="btn btn-primary" href="/delete">delete course</a>
+
+    </div>
+{% endblock %}

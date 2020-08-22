@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Apology
+{% endblock %}
+
+{% block body %}
+    <div>
+        <h2>Error {{ top }}</h2>
+        <hr/>
+        <p>{{ bottom }}</p>
+
+        <form>
+            <input class="btn btn-primary" type="button" value="back" onclick="history.back()">
+        </form>
+    </div>
+{% endblock %}

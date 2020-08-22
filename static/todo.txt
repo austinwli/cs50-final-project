@@ -1,0 +1,41 @@
+Notes:
+- only if time, very not urgent, allow filter partners by class year
+- add favicon, fix button and link coloring css
+- add pronouns
+- show existing availabilities on load OR make a view availabilities html
+- allow edit course info (for the additional info)
+- send friend requests
+- streamline view partners tables by time or name
+- improve UX: have a how-to, or pop up info on buttons
+- if no courses entered, prompt to enter courses when on partners.html
+- for pairs.html, change times formatting from military time to am/pm
+
+Thoughts
+- have a popular fall courses page
+- find your friends (check if someone is on the platform)
+
+DONE:
+- index.html
+- style (mostly)
+- make the home screen animated - type animation (austin)
+- insert pictures into about
+- added log out
+- fixed update information
+- customized profile info per user
+- add email to register
+- dropdown list of houses
+- change greeting on profile to say hello, [name].
+- half hour blocks for availability, where each block correspond to letters in the alphabet
+- make availability a click and drag
+- remove courses option
+- edit apology function
+- create course dropdown for partner match
+- have an availability reset button
+- link classes to list of partners
+- fixed email
+- deactivate is now live
+- 2 min video demo
+- README.md and DESIGN.md files
+- thoroughly comment all files
+- availabilities updated into the database upon save
+- made reset button functional

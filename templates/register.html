@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block body %}
+    <br/>
+    <h2>don't use a sensitive password.</h2>
+    <br/>
+    <form action="/register" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="password" type="password">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="confirmation" placeholder="re-enter password" type="password">
+        </div>
+        <button class="btn btn-primary" type="submit">register</button>
+    </form>
+{% endblock %}

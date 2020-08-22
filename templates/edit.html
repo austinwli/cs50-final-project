@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Edit Your Details
+{% endblock %}
+
+{% block body %}
+    <h2>tell us a little about yourself.</h2>
+    <br/>
+    <div>
+        <form action="/edit" method="post">
+            <div class="form-group">
+                <input class="form-control" name="first" placeholder="first name" type="text" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="last" placeholder="last name" type="text" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="email" placeholder="college email" type="email" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="year" placeholder="class of" type="integer" required>
+            </div>
+            <div class="form-group">
+                <select class="form-control browser-default custom-select" name="house" required>
+                    <option selected>house or dorm</option>
+                    <option value="adams house">adams</option>
+                    <option value="cabot house">cabot</option>
+                    <option value="currier house">currier</option>
+                    <option value="dunster house">dunster</option>
+                    <option value="eliot house">eliot</option>
+                    <option value="kirkland house">kirkland</option>
+                    <option value="leverett house">leverett</option>
+                    <option value="lowell house">lowell</option>
+                    <option value="mather house">mather</option>
+                    <option value="pfoho house">pfoho</option>
+                    <option value="quincy house">quincy</option>
+                    <option value="winthrop house">winthrop</option>
+                    <option value="crimson yard">crimson yard</option>
+                    <option value="elm yard">elm yard</option>
+                    <option value="ivy yard">ivy yard</option>
+                    <option value="oak yard">oak yard</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <select class="form-control browser-default custom-select" name="pronouns" required>
+                    <option value="she">she/her/hers</option>
+                    <option value="he">he/him/his</option>
+                    <option value="they">they/them/theirs</option>
+                    <option value="other">prefer not to say</option>
+                </select>
+            </div>
+            <button class="btn btn-primary">save details</button>
+        </form>
+    </div>
+    <hr>
+    <div>
+        <a class="btn btn-primary" href="/password">change password</a>
+        <a class="btn btn-primary" href="/deactivate">deactivate account</a>
+    </div>
+{% endblock %}

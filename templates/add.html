@@ -1,0 +1,181 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Courses
+{% endblock %}
+
+{% block body %}
+    <form action="/add" method="post">
+        <h2>add a course.</h2>
+        <hr/>
+        <div class="form-group">
+            <select class="form-control browser-default custom-select" name="dept" required>
+                <option selected>department/subject</option>
+                <option value="arts">arts</option>
+                <option value="aframer">african-american studies</option>
+                <option value="afrikaan">afrikaans</option>
+                <option value="akkad">akkadian</option>
+                <option value="amstdies">american studies</option>
+                <option value="amharic">amharic</option>
+                <option value="ane">ancient near east</option>
+                <option value="anthro">anthropology</option>
+                <option value="apcomp">applied computation</option>
+                <option value="apmth">applied math</option>
+                <option value="apphy">applied physics</option>
+                <option value="arabic">arabic</option>
+                <option value="armen">armenian</option>
+                <option value="afvs">arts, film, and visual studies</option>
+                <option value="astron">astronomy</option>
+                <option value="bcmp">bio chem and molecular pharm</option>
+                <option value="bbs">bio/-medical sci</option>
+                <option value="bph">bio sci in public health</option>
+                <option value="be">biomedical engineering</option>
+                <option value="bmif">biomedical informatics</option>
+                <option value="biophys">biophysics</option>
+                <option value="biostat">biostatistics</option>
+                <option value="bcs">bosnian, croatian and serbian</option>
+                <option value="catalan">catalan</option>
+                <option value="cellbio">cell biology</option>
+                <option value="celtic">celtic</option>
+                <option value="cpb">chemical and physical biology</option>
+                <option value="chem">chemistry</option>
+                <option value="chnshist">chinese history</option>
+                <option value="chnslit">chinese literature</option>
+                <option value="clasarch">classical archaeology</option>
+                <option value="clasheb">classical hebrew</option>
+                <option value="clasphil">classical philology</option>
+                <option value="clsstdy">classical studies</option>
+                <option value="classic">classics</option>
+                <option value="complit">comparative literature</option>
+                <option value="compsci">computer science</option>
+                <option value="czech">czech</option>
+                <option value="design">design</option>
+                <option value="drb">developmental and regenerative biology</option>
+                <option value="eafm">east asian film and media studies</option>
+                <option value="epsci">earth and planetary sciences</option>
+                <option value="eabs">east asian buddhist studies</option>
+                <option value="eas">east asian studies</option>
+                <option value="ec">economics</option>
+                <option value="egyptarb">egyptian arabic</option>
+                <option value="egyptian">egyptian</option>
+                <option value="engsci">engineering sciences</option>
+                <option value="english">english</option>
+                <option value="ese">environ sci and engineering</option>
+                <option value="espp">environ sci and public policy</option>
+                <option value="emr">ethnicity, migration and rights</option>
+                <option value="expos">expository writing</option>
+                <option value="folkmyth">folklore and mythology</option>
+                <option value="french">french</option>
+                <option value="frsemr">freshman seminar</option>
+                <option value="gened">general education</option>
+                <option value="genetic">genetics</option>
+                <option value="german">german</option>
+                <option value="ghhp">global health and health policy</option>
+                <option value="gov">government</option>
+                <option value="gsas">graduate school of arts and sciences</option>
+                <option value="greek">greek</option>
+                <option value="gullah">gullah</option>
+                <option value="haitian">haitian</option>
+                <option value="hausa">hausa</option>
+                <option value="health policy">health policy</option>
+                <option value="hebrew">hebrew</option>
+                <option value="hindurd">hindi-urdu</option>
+                <option value="hist">history</option>
+                <option value="histlit">history and literature</option>
+                <option value="haa">history of art and architecture</option>
+                <option value="histsci">history of science</option>
+                <option value="hbtm">human bio and translational med</option>
+                <option value="heb">human evolutionary bio</option>
+                <option value="hum">humanities</option>
+                <option value="igbo">igbo</option>
+                <option value="immun">immunology</option>
+                <option value="irish">irish</option>
+                <option value="islamciv">islamic civilizations</option>
+                <option value="ital">italian</option>
+                <option value="japan">japanese</option>
+                <option value="japnhist">japanese history</option>
+                <option value="jewishst">jewish studies</option>
+                <option value="korean">korean</option>
+                <option value="korhist">korean history</option>
+                <option value="latin">latin</option>
+                <option value="lps">life and physical sciences</option>
+                <option value="ls">life sciences</option>
+                <option value="ling">linguistics</option>
+                <option value="math">mathematics</option>
+                <option value="medsci">medical sciences</option>
+                <option value="medvlstd">medieval studies</option>
+                <option value="microbi">microbiology</option>
+                <option value="mbb">mind, brain and behavior</option>
+                <option value="modgrk">modern greek</option>
+                <option value="modheb">modern hebrew</option>
+                <option value="modmdest">modern middle east</option>
+                <option value="mcb">molecular and cellular biology</option>
+                <option value="music">music</option>
+                <option value="nec">near eastern civilizations</option>
+                <option value="nep">nepali</option>
+                <option value="neurobio">neurobiology</option>
+                <option value="neuro">neuro</option>
+                <option value="oeb">organismic and evolutionary bio</option>
+                <option value="persian">persian</option>
+                <option value="phil">philosophy</option>
+                <option value="ps">physical sciences</option>
+                <option value="phys">physics</option>
+                <option value="polish">polish</option>
+                <option value="portug">portuguese</option>
+                <option value="psy">psychology</option>
+                <option value="rsea">regional studies — east asia</option>
+                <option value="religion">religion</option>
+                <option value="romlang">romance languages</option>
+                <option value="romstd">romance studies</option>
+                <option value="rsra">russia, eastern europe and central asia</option>
+                <option value="russ">russian</option>
+                <option value="sanskirt">sanskirt</option>
+                <option value="scand">scandinavian</option>
+                <option value="shona">shona</option>
+                <option value="slavic">slavic</option>
+                <option value="socstd">social studies</option>
+                <option value="sociol">sociology</option>
+                <option value="sas">south asian studies</option>
+                <option value="spanish">spanish</option>
+                <option value="shbt">speech and hearing sciences</option>
+                <option value="stat">statistics</option>
+                <option value="scrb">stem cell and regenerative bio</option>
+                <option value="sudanese">sudanese</option>
+                <option value="sumerian">sumerian</option>
+                <option value="swahili">swahili</option>
+                <option value="swedish">swedish</option>
+                <option value="syriac">syriac</option>
+                <option value="sysbio">systems biology</option>
+                <option value="tam">tamil</option>
+                <option value="thi">thai</option>
+                <option value="tdm">theater, dance and media</option>
+                <option value="tibet">tibetan</option>
+                <option value="tigrinya">tigrinya</option>
+                <option value="turkish">turkish</option>
+                <option value="twi">twi</option>
+                <option value="ukra">ukranian</option>
+                <option value="uyghur">uyghur</option>
+                <option value="vietnam">vietnamese</option>
+                <option value="virology">virology</option>
+                <option value="welsh">welsh</option>
+                <option value="wstafrcn">west african pidgin</option>
+                <option value="wgs">woman, gender and sexuality</option>
+                <option value="yiddish">yiddish</option>
+                <option value="yoruba">yoruba</option>
+                <option value="zulu">zulu</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="number" placeholder="course number" type="text" required>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="addinfo" placeholder="additional info" type="text">
+        </div>
+        <div>
+            i.e. what section time are you in? if you're taking a gened, what gened is it?<br/>
+        </div><br/>
+        <button class="btn btn-primary" id="add">add course</button>
+    </form>
+    </div>
+{% endblock %}
+

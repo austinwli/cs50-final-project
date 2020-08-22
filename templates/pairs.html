@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your Partners
+{% endblock %}
+
+{% block body %}
+    <h2>{{ split[0] }} {{ split[1] }}</h2>
+    <hr/>
+    {% if not pairedUsers %}
+        <p>no paired users.</p>
+    {% endif %}
+    {% if pairedUsers %}
+    <table style="width: 85%; margin-left: auto; margin-right: auto;">
+        <tr>
+            <th>name and pronouns</th>
+            <th>year</th>
+            <th>times</th>
+        </tr>
+        {% for user in pairedUsers %}
+            <tr>
+                <td><a href="mailto:{{ user['email'] }}">{{ user["first"] }} {{ user["last"] }}</a> ({{ user["pronouns"] }})</td>
+                <td>{{ user["year"] }}</td>
+                <td>{{ user["time"] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+{% endblock %}

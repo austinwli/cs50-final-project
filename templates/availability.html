@@ -1,0 +1,125 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your Availability
+{% endblock %}
+
+{% block body %}
+    <h2>mark down when you're available to be paired.</h2>
+    <p>all times are in eastern standard time.</p>
+    <hr/>
+    <table class="calendar" id="times" style="width:100%">
+        <tr>
+            <th>time</th>
+            <th id="sun">sun</th>
+            <th id="mon">mon</th>
+            <th id="tue">tue</th>
+            <th id="wed">wed</th>
+            <th id="thu">thu</th>
+            <th id="fri">fri</th>
+            <th id="sat">sat</th>
+        </tr>
+        {% for index in indices %}
+            <tr>
+                <th>{{ times[index] }}</th>
+                {% for id in ids %}
+                    <td id="{{ id[index] }}"></td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+    <br/>
+    <button class="btn btn-primary" id="reset">reset</button>
+    <button class="btn btn-primary" id="submit">save changes</button>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    // drag and fill cells implementation from stackoverflow:
+    // https://stackoverflow.com/questions/48593312/javascript-event-when-mouseover-and-mousedown
+        window.onload = function() {
+            // toggle color
+            var table = document.getElementById('times');
+            var tableEntry = table.getElementsByTagName('td');
+            var isToggling = false;
+
+            function enableToggle(e) {
+                console.log('enableToggle');
+                isToggling = true;
+
+                if (e.target !== table) {
+                    toggle(e);
+                }
+            }
+            function disableToggle() {
+                console.log('disableToggle');
+                isToggling = false;
+            }
+            function toggle(e) {
+                if (isToggling === false) {
+                    return;
+                }
+                console.log('toggle:', e.target);
+                e.target.classList.toggle('active');
+            }
+            function startColor() {
+                table.onmousedown = enableToggle;
+                for (var i = 0, il = tableEntry.length; i < il; i++) {
+                    tableEntry[i].onmouseenter = toggle; //changes color
+                }
+                table.onmouseup = disableToggle;
+            }
+            startColor();
+
+            let availability = [];
+
+            function checkAvailability(e) {
+                var cell = document.getElementById(e);
+                console.log(cell);
+                if (cell.classList.contains('active')) {
+                    availability.push(e);
+                }
+            }
+
+            $('#submit').click(function() {
+                //iterate through all the ids
+                for (var i = 1; i < 225; i++) {
+                    checkAvailability(String(i));
+                }
+
+                // implement .then functionality after submit button
+                // https://stackoverflow.com/questions/39735496/redirect-after-a-fetch-post-call
+                fetch('/availability', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(availability),
+                })
+                .then(response => {
+                    window.location = "/dashboard";
+                });
+                alert("changes successfully saved!");
+            });
+
+            $('#reset').click(function() {
+                location.reload();
+            });
+        };
+
+        //set all existing ids to active
+        let existing = '{{ existing }}';
+        function setExisting(e) {
+            var cell = document.getElementById(e);
+            e.style.backgroundColor = '#7ca2a2';
+            e.target.classList.toggle('active');
+        }
+
+        for (var i = 1; i < existing.length + 1; i++) {
+            id = String(existing[i]);
+            setExisting(id);
+        }
+    </script>
+{% endblock %}

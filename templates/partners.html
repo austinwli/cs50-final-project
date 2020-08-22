@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your Partners
+{% endblock %}
+
+{% block body %}
+    <h2>meet your study partners!</h2>
+    <p>email them to confirm a study time.</p>
+    <hr/>
+    <form action="/partners" method="post">
+        <div class="form-group">
+            <select class="form-control browser-default custom-select" name="course" type="text" required>
+                <option selected>your courses</option>
+                {% for course in userCourses %}
+                    <option>{{ course["dept"] }} {{ course["number"] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button class="btn btn-primary" type="submit">see matches</button>
+    </form>
+    <br/>
+    {% if pairedUsers %}
+    <table>
+        <tr>
+            <th>name</th>
+            <th>year</th>
+            <th>email</th>
+        </tr>
+        {% for user in pairedUsers %}
+            <tr>
+                <td>{{ user["first"] }} {{ user["last"] }}</td>
+                <td>{{ user["year"] }}</td>
+                <td>{{ user["email"] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+{% endblock %}

@@ -33,7 +33,7 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Configure CS50 Library to use SQLite database
-db = SQL("sqlite:///database.db")
+db = SQL("postgres://ayxvtdiohyqunk:40da4da33d4a6f2f695b47da6d291d0cfefd7692177f0f94e732443c04a0c3e6@ec2-35-174-127-63.compute-1.amazonaws.com:5432/dbt3ad89fs4g39")
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
